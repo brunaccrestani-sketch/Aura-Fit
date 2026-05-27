@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Aura Fit — Gestão</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="Aura Fit">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose-deep:    #7D3A52;
+  --rose-mid:     #B5677E;
+  --rose-soft:    #D4A0B0;
+  --rose-pale:    #F5E8ED;
+  --rose-blush:   #FDF3F6;
+  --gold:         #C9A96E;
+  --gold-light:   #F0E0C4;
+  --ink:          #2A1E22;
+  --ink-mid:      #5C4550;
+  --ink-light:    #9A8088;
+  --white:        #FFFFFF;
+  --surface:      #FEFAFB;
+  --border:       #EDD8E0;
+  --green:        #4A7C59;
+  --green-light:  #E8F4EC;
+  --amber:        #B5791A;
+  --amber-light:  #FEF3DC;
+  --red:          #A33040;
+  --red-light:    #FDEAEC;
+  --radius:       14px;
+  --radius-sm:    8px;
+  --shadow:       0 2px 20px rgba(125,58,82,0.10);
+  --shadow-md:    0 8px 40px rgba(125,58,82,0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--rose-blush);
+  color: var(--ink);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--rose-deep);
+  padding: 18px 20px 14px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 16px rgba(125,58,82,0.25);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); letter-spacing: 2px; }
+.brand span { color: var(--rose-soft); font-weight: 300; }
+.topbar-sub { font-size: 11px; color: var(--rose-soft); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  display: flex;
+  box-shadow: 0 -4px 20px rgba(125,58,82,0.10);
+  z-index: 100;
+}
+.nav-btn {
+  flex: 1; padding: 10px 4px 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  background: none; border: none; cursor: pointer;
+  color: var(--ink-light); font-size: 10px; font-family: 'DM Sans', sans-serif; font-weight: 500;
+  letter-spacing: 0.5px; transition: color 0.2s;
+}
+.nav-btn.active { color: var(--rose-deep); }
+.nav-btn svg { width: 20px; height: 20px; stroke-width: 1.8; }
+.nav-btn.active svg { stroke: var(--rose-deep); }
+
+/* ── SCREENS ── */
+.screen { display: none; padding: 16px; }
+.screen.active { display: block; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.card-title {
+  font-size: 11px; font-weight: 600; color: var(--rose-mid);
+  text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 12px;
+}
+
+/* ── KPI GRID ── */
+.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.kpi {
+  background: var(--white); border-radius: var(--radius); padding: 16px;
+  box-shadow: var(--shadow); border: 1px solid var(--border);
+}
+.kpi-label { font-size: 10px; color: var(--ink-light); font-weight: 500; letter-spacing: 0.5px; margin-bottom: 6px; }
+.kpi-value { font-size: 22px; font-weight: 600; color: var(--rose-deep); line-height: 1; }
+.kpi-value.small { font-size: 17px; }
+.kpi-sub { font-size: 10px; color: var(--ink-light); margin-top: 4px; }
+
+.kpi-wide {
+  background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid));
+  border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px;
+  box-shadow: var(--shadow-md);
+}
+.kpi-wide-label { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 1px; text-transform: uppercase; }
+.kpi-wide-value { font-size: 32px; font-weight: 600; color: var(--white); margin-top: 4px; }
+.kpi-wide-sub { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+/* ── SECTION HEADER ── */
+.section-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px; margin-top: 6px;
+}
+.section-hd h3 { font-size: 13px; font-weight: 600; color: var(--ink); }
+.section-hd a { font-size: 12px; color: var(--rose-mid); text-decoration: none; }
+
+/* ── BAR CHART ── */
+.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.bar-label { font-size: 12px; color: var(--ink); width: 80px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { flex: 1; height: 8px; background: var(--rose-pale); border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--rose-mid), var(--rose-deep)); border-radius: 99px; transition: width 0.6s ease; }
+.bar-num { font-size: 11px; color: var(--ink-light); width: 36px; text-align: right; flex-shrink: 0; }
+
+/* ── MONTH CHART ── */
+.month-bars { display: flex; align-items: flex-end; gap: 6px; height: 80px; margin: 8px 0; }
+.month-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.month-bar {
+  width: 100%; border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--rose-mid), var(--rose-deep));
+  min-height: 4px; transition: height 0.5s ease;
+}
+.month-bar.current { background: linear-gradient(180deg, var(--gold), #A07830); }
+.month-name { font-size: 9px; color: var(--ink-light); }
+
+/* ── FORM ── */
+.form-group { margin-bottom: 14px; }
+.form-label { font-size: 12px; font-weight: 600; color: var(--ink-mid); margin-bottom: 6px; display: block; letter-spacing: 0.3px; }
+.form-input, .form-select {
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); font-size: 15px; font-family: 'DM Sans', sans-serif;
+  color: var(--ink); background: var(--white); outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.form-input:focus, .form-select:focus {
+  border-color: var(--rose-mid);
+  box-shadow: 0 0 0 3px rgba(181,103,126,0.12);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-primary {
+  width: 100%; padding: 15px; background: var(--rose-deep);
+  color: var(--white); border: none; border-radius: var(--radius-sm);
+  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  cursor: pointer; letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(125,58,82,0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  padding: 8px 16px; background: var(--rose-pale);
+  color: var(--rose-deep); border: none; border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 500; font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--green); color: white; padding: 12px 24px;
+  border-radius: 99px; font-size: 14px; font-weight: 500;
+  opacity: 0; transition: all 0.3s ease; z-index: 999; white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── LIST ITEMS ── */
+.list-item {
+  display: flex; align-items: center; padding: 12px 0;
+  border-bottom: 1px solid var(--border); gap: 12px;
+}
+.list-item:last-child { border-bottom: none; }
+.list-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-pale), var(--rose-soft));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; color: var(--rose-deep); flex-shrink: 0;
+}
+.list-main { flex: 1; min-width: 0; }
+.list-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+.list-sub { font-size: 12px; color: var(--ink-light); margin-top: 1px; }
+.list-right { text-align: right; flex-shrink: 0; }
+.list-val { font-size: 14px; font-weight: 600; color: var(--rose-deep); }
+.list-val-sub { font-size: 11px; color: var(--ink-light); margin-top: 1px; }
+
+/* ── BADGE ── */
+.badge {
+  display: inline-block; padding: 3px 9px; border-radius: 99px; font-size: 11px; font-weight: 500;
+}
+.badge-ok    { background: var(--green-light);  color: var(--green); }
+.badge-warn  { background: var(--amber-light);  color: var(--amber); }
+.badge-alert { background: var(--red-light);    color: var(--red); }
+.badge-vip   { background: var(--gold-light);   color: #7A5518; }
+.badge-rec   { background: var(--rose-pale);    color: var(--rose-deep); }
+
+/* ── STOCK STATUS BAR ── */
+.stock-bar-wrap { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.stock-bar-track { flex: 1; height: 5px; background: var(--rose-pale); border-radius: 99px; overflow: hidden; }
+.stock-bar-fill { height: 100%; border-radius: 99px; }
+
+/* ── TABS ── */
+.tabs { display: flex; background: var(--white); border-radius: var(--radius); padding: 4px; margin-bottom: 14px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.tab { flex: 1; padding: 8px 4px; text-align: center; font-size: 12px; font-weight: 500; color: var(--ink-light); cursor: pointer; border-radius: 10px; transition: all 0.2s; }
+.tab.active { background: var(--rose-deep); color: var(--white); }
+
+/* ── VENDA LIST ── */
+.venda-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.venda-item:last-child { border-bottom: none; }
+.venda-top { display: flex; justify-content: space-between; align-items: center; }
+.venda-prod { font-size: 14px; font-weight: 500; color: var(--ink); }
+.venda-val { font-size: 15px; font-weight: 600; color: var(--rose-deep); }
+.venda-bot { display: flex; justify-content: space-between; margin-top: 3px; }
+.venda-cli { font-size: 12px; color: var(--ink-light); }
+.venda-data { font-size: 11px; color: var(--ink-light); }
+
+/* ── EMPTY STATE ── */
+.empty { text-align: center; padding: 40px 20px; color: var(--ink-light); }
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-text { font-size: 14px; }
+
+/* ── SCROLLABLE ── */
+.scroll-list { max-height: 320px; overflow-y: auto; }
+.scroll-list::-webkit-scrollbar { width: 3px; }
+.scroll-list::-webkit-scrollbar-thumb { background: var(--rose-soft); border-radius: 99px; }
+
+/* ── DELETE BTN ── */
+.del-btn { background: none; border: none; color: var(--ink-light); font-size: 16px; cursor: pointer; padding: 4px; }
+.del-btn:active { color: var(--red); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(42,30,34,0.5);
+  z-index: 200; align-items: flex-end; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white); border-radius: var(--radius) var(--radius) 0 0;
+  padding: 24px 20px 32px; width: 100%; max-width: 480px;
+  max-height: 85vh; overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--rose-deep); margin-bottom: 20px; }
+.modal-close { float: right; background: none; border: none; font-size: 22px; color: var(--ink-light); cursor: pointer; margin-top: -4px; }
+
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--border); margin: 14px 0; }
+
+/* ── PAGE TITLE ── */
+.page-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--rose-deep); margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="brand">AURA <span>FIT</span></div>
+      <div class="topbar-sub">energia que se veste</div>
+    </div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+  </div>
+</div>
+
+<!-- SCREENS -->
+
+<!-- PAINEL -->
+<div id="screen-painel" class="screen active">
+  <div style="height:14px"></div>
+
+  <div class="kpi-wide">
+    <div class="kpi-wide-label">Faturamento do Mês</div>
+    <div class="kpi-wide-value" id="fat-mes">R$ 0,00</div>
+    <div class="kpi-wide-sub" id="fat-mes-sub">0 peças vendidas</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Ticket Médio</div>
+      <div class="kpi-value small" id="ticket-medio">R$ 0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Clientes Alcançadas</div>
+      <div class="kpi-value small" id="clientes-mes">0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Fat. do Ano</div>
+      <div class="kpi-value small" id="fat-ano">R$ 0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Peças no Ano</div>
+      <div class="kpi-value small" id="pecas-ano">0</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Evolução Mensal</div>
+    <div class="month-bars" id="month-bars"></div>
+    <div style="display:flex;gap:6px;justify-content:center;margin-top:4px;flex-wrap:wrap" id="month-labels"></div>
+  </div>
+
+  <div class="card">
+    <div class="section-hd"><h3>Produtos mais vendidos</h3></div>
+    <div id="top-produtos"></div>
+  </div>
+
+  <div class="card">
+    <div class="section-hd">
+      <h3>Últimas vendas</h3>
+      <a href="#" onclick="navTo('vendas');return false;">Ver todas</a>
+    </div>
+    <div id="ultimas-vendas"></div>
+  </div>
+</div>
+
+<!-- LANÇAR VENDA -->
+<div id="screen-lancar" class="screen">
+  <div style="height:14px"></div>
+  <div class="page-title">Lançar Venda</div>
+
+  <div class="card">
+    <div class="form-group">
+      <label class="form-label">Data</label>
+      <input type="date" class="form-input" id="v-data">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Cliente</label>
+      <input type="text" class="form-input" id="v-cliente" placeholder="Nome da cliente" list="lista-clientes">
+      <datalist id="lista-clientes"></datalist>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Origem</label>
+      <select class="form-select" id="v-origem">
+        <option value="">Selecione...</option>
+        <option>Academia</option>
+        <option>Instagram</option>
+        <option>Indicação</option>
+        <option>Conhecido</option>
+        <option>Ponto de Retirada</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Produto</label>
+      <input type="text" class="form-input" id="v-produto" placeholder="Nome do produto" list="lista-produtos">
+      <datalist id="lista-produtos"></datalist>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Quantidade</label>
+        <input type="number" class="form-input" id="v-qtd" value="1" min="1">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Valor (R$)</label>
+        <input type="number" class="form-input" id="v-valor" placeholder="0,00" step="0.01">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Forma de Pagamento</label>
+      <select class="form-select" id="v-pagto">
+        <option value="">Selecione...</option>
+        <option>Pix</option>
+        <option>Cartão</option>
+        <option>Pix Parcelado</option>
+        <option>Dinheiro</option>
+        <option>Permuta</option>
+        <option>A receber</option>
+        <option>Pix a Prazo</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Observação</label>
+      <input type="text" class="form-input" id="v-obs" placeholder="Opcional">
+    </div>
+    <button class="btn-primary" onclick="salvarVenda()">Registrar Venda</button>
+  </div>
+</div>
+
+<!-- VENDAS -->
+<div id="screen-vendas" class="screen">
+  <div style="height:14px"></div>
+  <div class="page-title">Vendas</div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="filtrarVendas('mes',this)">Este mês</div>
+    <div class="tab" onclick="filtrarVendas('anterior',this)">Mês anterior</div>
+    <div class="tab" onclick="filtrarVendas('todas',this)">Todas</div>
+  </div>
+
+  <div class="card">
+    <div id="lista-vendas-filtrada"></div>
+  </div>
+</div>
+
+<!-- ESTOQUE -->
+<div id="screen-estoque" class="screen">
+  <div style="height:14px"></div>
+  <div class="page-title">Estoque</div>
+
+  <div class="kpi-grid" style="margin-bottom:12px">
+    <div class="kpi">
+      <div class="kpi-label">Total de Peças</div>
+      <div class="kpi-value small" id="est-total-pecas">0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Valor em Estoque</div>
+      <div class="kpi-value small" id="est-total-valor">R$ 0</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="filtrarEstoque('todos',this)">Todos</div>
+    <div class="tab" onclick="filtrarEstoque('alerta',this)">Com alerta</div>
+    <div class="tab" onclick="filtrarEstoque('ok',this)">OK</div>
+  </div>
+
+  <div class="card">
+    <div id="lista-estoque"></div>
+  </div>
+</div>
+
+<!-- CLIENTES -->
+<div id="screen-clientes" class="screen">
+  <div style="height:14px"></div>
+  <div class="page-title">Clientes</div>
+
+  <div class="card">
+    <input type="text" class="form-input" id="busca-cliente" placeholder="Buscar cliente..." oninput="renderClientes()" style="margin-bottom:0">
+  </div>
+
+  <div class="card" style="padding:0 18px">
+    <div id="lista-clientes-view"></div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="nav-btn active" id="nav-painel" onclick="navTo('painel')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Painel
+  </button>
+  <button class="nav-btn" id="nav-lancar" onclick="navTo('lancar')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    Lançar
+  </button>
+  <button class="nav-btn" id="nav-vendas" onclick="navTo('vendas')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    Vendas
+  </button>
+  <button class="nav-btn" id="nav-estoque" onclick="navTo('estoque')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/><path d="M8 7V5a2 2 0 00-4 0v2"/></svg>
+    Estoque
+  </button>
+  <button class="nav-btn" id="nav-clientes" onclick="navTo('clientes')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+    Clientes
+  </button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── ESTADO GLOBAL ─────────────────────────────────────────────────
+const STORAGE_KEY = 'aurafit_data_v1';
+
+const PRODUTOS_BASE = [
+  {cod:'L001',nome:'Legging Avulsa Realça Bumbum',custo:35,venda:69,estoque:18},
+  {cod:'L002',nome:'Legging Lisa',custo:45,venda:99,estoque:10},
+  {cod:'L003',nome:'Legging Elite Prime',custo:45,venda:109,estoque:7},
+  {cod:'L004',nome:'Legging Canelada',custo:50,venda:89,estoque:0},
+  {cod:'L005',nome:'Legging Capri com Listra',custo:45,venda:89,estoque:1},
+  {cod:'L006',nome:'Conj Legging Lipsoul',custo:125,venda:225,estoque:3},
+  {cod:'M001',nome:'Macaquinho Miss Blessed',custo:70,venda:129,estoque:2},
+  {cod:'M002',nome:'Macaquinho Canelado Alça Normal',custo:35,venda:99,estoque:3},
+  {cod:'M003',nome:'Macacão Canelado Costas Fechada',custo:70,venda:149,estoque:1},
+  {cod:'M004',nome:'Macacão Canelado Alça Larga',custo:60,venda:129,estoque:4},
+  {cod:'M005',nome:'Macacão Canelado X',custo:60,venda:129,estoque:2},
+  {cod:'M006',nome:'Macacão Liso Frente Única',custo:70,venda:149,estoque:7},
+  {cod:'M007',nome:'Macacão Tiras',custo:60,venda:129,estoque:3},
+  {cod:'C001',nome:'Conjunto Triforce',custo:85,venda:169,estoque:21},
+  {cod:'C002',nome:'Conjunto Elite',custo:85,venda:169,estoque:5},
+  {cod:'C003',nome:'Conjunto Dual Force',custo:85,venda:169,estoque:3},
+  {cod:'C004',nome:'Conjunto Criare Short+Top',custo:70,venda:139,estoque:1},
+  {cod:'S001',nome:'Short Avulso com Bolso',custo:50,venda:69,estoque:0},
+  {cod:'S002',nome:'Short Avulso Poliamida',custo:37,venda:69,estoque:2},
+  {cod:'R001',nome:'Regata',custo:15,venda:25,estoque:3},
+  {cod:'T001',nome:'Camiseta Dry Fit',custo:40,venda:79,estoque:5},
+  {cod:'T002',nome:'Croped Dry Fit',custo:40,venda:69,estoque:2},
+  {cod:'T003',nome:'Top Avulso',custo:30,venda:59,estoque:9},
+  {cod:'V001',nome:'Vest Legging',custo:40,venda:79,estoque:0},
+  {cod:'J001',nome:'Jaqueta Poliamida',custo:55,venda:119,estoque:0},
+  {cod:'J002',nome:'Jaqueta Corta Vento',custo:100,venda:199,estoque:7},
+  {cod:'J003',nome:'Jaqueta Canelada',custo:50,venda:109,estoque:9},
+  {cod:'F001',nome:'Flare Canelada',custo:45,venda:109,estoque:8},
+  {cod:'Y001',nome:'Conjunto Yoga',custo:125,venda:269,estoque:9},
+];
+
+const HISTORICO = [
+  {data:'2026-02-01',cliente:'Raquel HEALTHY',origem:'Academia',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Cartão'},
+  {data:'2026-02-01',cliente:'Raquel HEALTHY',origem:'Academia',produto:'Conj Feline',qtd:1,valor:149,pagto:'Cartão'},
+  {data:'2026-02-02',cliente:'Dara',origem:'Instagram',produto:'Conj Aveludado',qtd:1,valor:149,pagto:'Pix'},
+  {data:'2026-02-02',cliente:'Vanessa HEALTHY',origem:'Academia',produto:'Conj Preto',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-02-03',cliente:'Josi HEALTHY',origem:'Academia',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Pix'},
+  {data:'2026-02-04',cliente:'Josi HEALTHY',origem:'Academia',produto:'Legging Avulsa',qtd:1,valor:89,pagto:'Pix'},
+  {data:'2026-02-04',cliente:'Leti HEALTHY',origem:'Academia',produto:'Conj Feline',qtd:2,valor:298,pagto:'Pix Parcelado'},
+  {data:'2026-02-07',cliente:'Rosane MASSAGEM',origem:'Indicação',produto:'Macaquinho',qtd:1,valor:139,pagto:'Pix a Prazo'},
+  {data:'2026-02-14',cliente:'Tássia',origem:'Instagram',produto:'Conj Liso',qtd:1,valor:149,pagto:'Pix'},
+  {data:'2026-02-23',cliente:'Nathy MORINGA',origem:'Academia',produto:'Macaquinhos',qtd:3,valor:417,pagto:'Pix Parcelado'},
+  {data:'2026-02-23',cliente:'Nathy MORINGA',origem:'Academia',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Pix Parcelado'},
+  {data:'2026-02-27',cliente:'Tati',origem:'Conhecido',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Pix Parcelado'},
+  {data:'2026-02-27',cliente:'Camila Silveira',origem:'Conhecido',produto:'Macaquinho',qtd:1,valor:139,pagto:'Pix'},
+  {data:'2026-02-27',cliente:'Camila Silveira',origem:'Conhecido',produto:'Legging Avulsa',qtd:1,valor:89,pagto:'Pix'},
+  {data:'2026-02-27',cliente:'Raquel HEALTHY',origem:'Academia',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Cartão'},
+  {data:'2026-03-01',cliente:'Talita',origem:'Indicação',produto:'Conj Canelado',qtd:1,valor:139,pagto:'Pix'},
+  {data:'2026-03-02',cliente:'Mirian',origem:'Conhecido',produto:'Conj Canelado',qtd:2,valor:278,pagto:'Pix Parcelado'},
+  {data:'2026-03-02',cliente:'Ingrid',origem:'Instagram',produto:'Macaquinho Bicolor Canelado',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-03-04',cliente:'Camila Silveira',origem:'Conhecido',produto:'Macaquinho Bicolor Canelado',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-03-05',cliente:'Leti HEALTHY',origem:'Academia',produto:'Conj Canelado',qtd:2,valor:222,pagto:'Pix Parcelado'},
+  {data:'2026-03-05',cliente:'Geovana',origem:'Instagram',produto:'Conj Feline',qtd:1,valor:134,pagto:'Pix'},
+  {data:'2026-03-05',cliente:'Muriel',origem:'Instagram',produto:'Conj Preto',qtd:1,valor:97,pagto:'Pix'},
+  {data:'2026-03-05',cliente:'Thierry',origem:'Indicação',produto:'Conj Feline',qtd:1,valor:115,pagto:'Pix'},
+  {data:'2026-03-06',cliente:'Irene',origem:'Indicação',produto:'Conj Lipsoul',qtd:1,valor:202,pagto:'Pix'},
+  {data:'2026-03-08',cliente:'Fran VIP',origem:'Conhecido',produto:'Macaquinho Canelado Y',qtd:1,valor:99,pagto:'Dinheiro'},
+  {data:'2026-03-08',cliente:'Josi HEALTHY',origem:'Academia',produto:'Macacão',qtd:1,valor:149,pagto:'Pix'},
+  {data:'2026-03-08',cliente:'Nathy MORINGA',origem:'Academia',produto:'Macacão',qtd:1,valor:149,pagto:'Pix Parcelado'},
+  {data:'2026-03-09',cliente:'Andressa Volcao',origem:'Instagram',produto:'Conj Triforce',qtd:1,valor:169,pagto:'Permuta'},
+  {data:'2026-03-09',cliente:'Camila Silveira',origem:'Conhecido',produto:'Conj Lipsoul',qtd:1,valor:225,pagto:'Pix'},
+  {data:'2026-03-10',cliente:'Fran VIP',origem:'Conhecido',produto:'Macaquinho Canelado Y',qtd:1,valor:99,pagto:'Pix Parcelado'},
+  {data:'2026-03-13',cliente:'Catarine',origem:'Instagram',produto:'Macaquinho Bicolor Liso',qtd:1,valor:139,pagto:'Pix'},
+  {data:'2026-03-18',cliente:'Ana Paula',origem:'Academia',produto:'Conj Canelado',qtd:1,valor:90,pagto:'Pix'},
+  {data:'2026-03-18',cliente:'Kamila',origem:'Academia',produto:'Bermuda com Bolso',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-03-18',cliente:'Carla',origem:'Academia',produto:'Bermuda com Bolso',qtd:1,valor:59,pagto:'Pix'},
+  {data:'2026-03-19',cliente:'Thais',origem:'Instagram',produto:'Conj Triforce',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-03-24',cliente:'Fernanda PROFIT',origem:'Academia',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-03-24',cliente:'Dani PROFIT',origem:'Academia',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-03-24',cliente:'Daiane AZULZINHA',origem:'Indicação',produto:'Conj Elite',qtd:1,valor:169,pagto:'Cartão'},
+  {data:'2026-03-24',cliente:'Leti HEALTHY',origem:'Academia',produto:'Conj Triforce',qtd:1,valor:169,pagto:'Pix Parcelado'},
+  {data:'2026-03-24',cliente:'Fran VIP',origem:'Conhecido',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Pix Parcelado'},
+  {data:'2026-03-25',cliente:'Carla',origem:'Academia',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Dinheiro'},
+  {data:'2026-03-25',cliente:'Camila Silveira',origem:'Conhecido',produto:'Macacão',qtd:1,valor:149,pagto:'Cartão'},
+  {data:'2026-03-26',cliente:'Thalita',origem:'Instagram',produto:'Conj Triforce',qtd:2,valor:338,pagto:'Cartão'},
+  {data:'2026-03-29',cliente:'Milene',origem:'Academia',produto:'Macaquinho Canelado Alça Normal',qtd:1,valor:99,pagto:'Cartão'},
+  {data:'2026-03-30',cliente:'Fran VIP',origem:'Conhecido',produto:'Conj Flare',qtd:1,valor:179,pagto:'Pix Parcelado'},
+  {data:'2026-04-01',cliente:'Vanessa HEALTHY',origem:'Academia',produto:'Legging Avulsa',qtd:3,valor:203,pagto:'Cartão'},
+  {data:'2026-04-02',cliente:'Mai HEALTHY',origem:'Academia',produto:'Macacão Canelado',qtd:1,valor:149,pagto:'Pix'},
+  {data:'2026-04-03',cliente:'Natiele',origem:'Instagram',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Cartão'},
+  {data:'2026-04-03',cliente:'Ingrid',origem:'Instagram',produto:'Macaquinho Canelado Y',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-04-05',cliente:'Ticiane ADEMICON',origem:'Indicação',produto:'Conj Elite',qtd:2,valor:338,pagto:'Pix Parcelado'},
+  {data:'2026-04-05',cliente:'Tati',origem:'Conhecido',produto:'Macacão',qtd:1,valor:129,pagto:'Pix Parcelado'},
+  {data:'2026-04-06',cliente:'Ingrid',origem:'Instagram',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-04-06',cliente:'Camila Silveira',origem:'Conhecido',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-04-06',cliente:'Laura HEALTHY',origem:'Academia',produto:'Conj Elite',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-04-07',cliente:'Giniane',origem:'Academia',produto:'Legging Avulsa',qtd:2,valor:138,pagto:'Pix'},
+  {data:'2026-04-07',cliente:'Carla',origem:'Academia',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-04-07',cliente:'Nathy MORINGA',origem:'Academia',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Dinheiro'},
+  {data:'2026-04-08',cliente:'Catiuscia',origem:'Indicação',produto:'Conj Elite',qtd:1,valor:169,pagto:'Cartão'},
+  {data:'2026-04-08',cliente:'Walkyria',origem:'Indicação',produto:'Conj Flare',qtd:1,valor:179,pagto:'Pix'},
+  {data:'2026-04-09',cliente:'Jéssica PROFIT',origem:'Academia',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-04-10',cliente:'Ingrid',origem:'Instagram',produto:'Conj Elite',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-04-12',cliente:'Catiuscia',origem:'Indicação',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Cartão'},
+  {data:'2026-04-13',cliente:'Milene',origem:'Academia',produto:'Macacão Canelado',qtd:1,valor:149,pagto:'Cartão'},
+  {data:'2026-04-14',cliente:'Carla',origem:'Academia',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-04-16',cliente:'Ingrid',origem:'Instagram',produto:'Conj Rosa',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-04-21',cliente:'Josi HEALTHY',origem:'Academia',produto:'Macacão',qtd:3,valor:387,pagto:'Cartão'},
+  {data:'2026-04-21',cliente:'Milene',origem:'Academia',produto:'Jaqueta',qtd:1,valor:119,pagto:'Cartão'},
+  {data:'2026-04-21',cliente:'Cintia',origem:'Indicação',produto:'Legging Avulsa',qtd:2,valor:138,pagto:'Pix'},
+  {data:'2026-04-23',cliente:'Laura HEALTHY',origem:'Academia',produto:'Macacão',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-04-24',cliente:'Chris',origem:'Indicação',produto:'Jaqueta',qtd:1,valor:119,pagto:'Pix Parcelado'},
+  {data:'2026-04-24',cliente:'Nathy MORINGA',origem:'Academia',produto:'Jaqueta',qtd:1,valor:119,pagto:'Pix Parcelado'},
+  {data:'2026-04-26',cliente:'Flávia PROFIT',origem:'Academia',produto:'Macacão',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-04-26',cliente:'Dani PROFIT',origem:'Academia',produto:'Jaqueta',qtd:1,valor:119,pagto:'Pix'},
+  {data:'2026-04-27',cliente:'Jéssica PROFIT',origem:'Academia',produto:'Legging Avulsa',qtd:3,valor:207,pagto:'Pix'},
+  {data:'2026-04-27',cliente:'Jéssica PROFIT',origem:'Academia',produto:'Macacão',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-04-29',cliente:'Maria',origem:'Indicação',produto:'Jaqueta',qtd:1,valor:119,pagto:'Cartão'},
+  {data:'2026-04-29',cliente:'Fran VIP',origem:'Conhecido',produto:'Legging Prime',qtd:1,valor:109,pagto:'Pix Parcelado'},
+  {data:'2026-04-29',cliente:'Priscila PROFIT',origem:'Academia',produto:'Legging Lisa',qtd:2,valor:198,pagto:'Pix'},
+  {data:'2026-04-29',cliente:'Ingrid',origem:'Instagram',produto:'Macacão',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-04-29',cliente:'Monique',origem:'Indicação',produto:'Conj Elite',qtd:1,valor:169,pagto:'Cartão'},
+  {data:'2026-05-01',cliente:'Stefanie HEALTHY',origem:'Academia',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-05-01',cliente:'Nathy MORINGA',origem:'Academia',produto:'Macacão Alça Larga',qtd:1,valor:129,pagto:'Pix Parcelado'},
+  {data:'2026-05-01',cliente:'Camila Silveira',origem:'Conhecido',produto:'Legging Prime',qtd:1,valor:109,pagto:'Pix'},
+  {data:'2026-05-01',cliente:'Carina HEALTHY',origem:'Academia',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-05-01',cliente:'Claudia PROFIT',origem:'Academia',produto:'Legging Lisa',qtd:2,valor:198,pagto:'Dinheiro'},
+  {data:'2026-05-03',cliente:'Auri',origem:'Instagram',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-05-03',cliente:'Auri',origem:'Instagram',produto:'Jaqueta',qtd:1,valor:119,pagto:'Pix'},
+  {data:'2026-05-04',cliente:'Kelly PROFIT',origem:'Academia',produto:'Conj Dual Force',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-05-06',cliente:'Tati',origem:'Conhecido',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix Parcelado'},
+  {data:'2026-05-06',cliente:'Ingrid',origem:'Instagram',produto:'Macacão Tiras',qtd:1,valor:129,pagto:'Pix'},
+  {data:'2026-05-07',cliente:'Bianca',origem:'Instagram',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-05-08',cliente:'Bianca',origem:'Instagram',produto:'Conj Elite',qtd:1,valor:169,pagto:'Pix'},
+  {data:'2026-05-08',cliente:'Aline',origem:'Indicação',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-05-08',cliente:'Muriel',origem:'Instagram',produto:'Jaqueta',qtd:1,valor:119,pagto:'Cartão'},
+  {data:'2026-05-08',cliente:'Priscila PROFIT',origem:'Academia',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Pix'},
+  {data:'2026-05-09',cliente:'Carla DALLASUL',origem:'Indicação',produto:'Jaqueta',qtd:1,valor:119,pagto:'Cartão'},
+  {data:'2026-05-10',cliente:'Bianca',origem:'Instagram',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-05-11',cliente:'Pamela',origem:'Instagram',produto:'Legging Avulsa',qtd:2,valor:138,pagto:'Pix'},
+  {data:'2026-05-12',cliente:'Eduarda',origem:'Instagram',produto:'Legging Avulsa',qtd:2,valor:138,pagto:'Pix'},
+  {data:'2026-05-12',cliente:'Rafaela',origem:'Instagram',produto:'Legging Avulsa',qtd:2,valor:138,pagto:'Pix Parcelado'},
+  {data:'2026-05-13',cliente:'Camila',origem:'Indicação',produto:'Legging Avulsa',qtd:1,valor:69,pagto:'Pix'},
+  {data:'2026-05-13',cliente:'Tati',origem:'Conhecido',produto:'Macacão Alça Larga',qtd:1,valor:129,pagto:'Pix Parcelado'},
+  {data:'2026-05-14',cliente:'Duda HEALTHY',origem:'Academia',produto:'Jaqueta',qtd:1,valor:119,pagto:'Cartão'},
+  {data:'2026-05-14',cliente:'Duda HEALTHY',origem:'Academia',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Cartão'},
+  {data:'2026-05-15',cliente:'Jana HEALTHY',origem:'Academia',produto:'Conj Elite',qtd:1,valor:169,pagto:'Pix Parcelado'},
+  {data:'2026-05-18',cliente:'Veronica',origem:'Instagram',produto:'Conj Criare',qtd:1,valor:139,pagto:'Pix'},
+  {data:'2026-05-18',cliente:'Veronica',origem:'Instagram',produto:'Jaqueta',qtd:1,valor:119,pagto:'Pix'},
+  {data:'2026-05-19',cliente:'Carina HEALTHY',origem:'Academia',produto:'Legging Lisa',qtd:2,valor:198,pagto:'Cartão'},
+  {data:'2026-05-20',cliente:'Josi HEALTHY',origem:'Academia',produto:'Macacão Frente Única',qtd:1,valor:149,pagto:'Pix'},
+  {data:'2026-05-21',cliente:'Magda',origem:'Indicação',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Dinheiro'},
+  {data:'2026-05-23',cliente:'Daiane AZULZINHA',origem:'Indicação',produto:'Macacão Alça Larga',qtd:1,valor:129,pagto:'Cartão'},
+  {data:'2026-05-23',cliente:'Marlise',origem:'Instagram',produto:'Jaqueta Corta Vento',qtd:1,valor:199,pagto:'Pix Parcelado'},
+  {data:'2026-05-23',cliente:'Kathelyn POSTO',origem:'Indicação',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Cartão'},
+  {data:'2026-05-23',cliente:'Tanusia',origem:'Indicação',produto:'Legging Lisa',qtd:1,valor:99,pagto:'Cartão'},
+  {data:'2026-05-23',cliente:'Giniane',origem:'Academia',produto:'Macacão',qtd:1,valor:129,pagto:'Dinheiro'},
+  {data:'2026-05-23',cliente:'Irene',origem:'Indicação',produto:'Legging Lisa',qtd:2,valor:138,pagto:'Pix'},
+  {data:'2026-05-23',cliente:'Irene',origem:'Indicação',produto:'Vest Legging',qtd:1,valor:79,pagto:'Pix'},
+  {data:'2026-05-23',cliente:'Irene',origem:'Indicação',produto:'Flare',qtd:1,valor:109,pagto:'Pix'},
+];
+
+// ── STORAGE ───────────────────────────────────────────────────────
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return { vendas: [...HISTORICO], produtos: [...PRODUTOS_BASE] };
+}
+
+function saveData(data) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+let APP = loadData();
+
+// ── HELPERS ───────────────────────────────────────────────────────
+const R$ = v => 'R$ ' + Number(v).toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+const R$k = v => v >= 1000 ? 'R$ ' + (v/1000).toFixed(1) + 'k' : R$(v);
+
+function getMes(d) { return new Date(d + 'T12:00:00').getMonth() + 1; }
+function getAno(d) { return new Date(d + 'T12:00:00').getFullYear(); }
+
+const hoje = new Date();
+const mesAtual = hoje.getMonth() + 1;
+const anoAtual = hoje.getFullYear();
+
+function vendasDoMes(m, a) {
+  a = a || anoAtual;
+  return APP.vendas.filter(v => getMes(v.data) === m && getAno(v.data) === a);
+}
+
+function fmtData(d) {
+  const [y,mo,dia] = d.split('-');
+  return `${dia}/${mo}`;
+}
+
+// ── NAVEGAÇÃO ─────────────────────────────────────────────────────
+function navTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+  if (id === 'painel') renderPainel();
+  if (id === 'vendas') renderVendas();
+  if (id === 'estoque') renderEstoque();
+  if (id === 'clientes') renderClientes();
+  window.scrollTo(0,0);
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────
+function showToast(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color || 'var(--green)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── PAINEL ────────────────────────────────────────────────────────
+function renderPainel() {
+  const vm = vendasDoMes(mesAtual);
+  const fatMes = vm.reduce((s,v) => s+v.valor, 0);
+  const pecasMes = vm.reduce((s,v) => s+v.qtd, 0);
+  const clientesMes = new Set(vm.map(v => v.cliente)).size;
+  const ticketMedio = vm.length ? fatMes / vm.length : 0;
+
+  const fatAno = APP.vendas.filter(v => getAno(v.data) === anoAtual).reduce((s,v) => s+v.valor, 0);
+  const pecasAno = APP.vendas.filter(v => getAno(v.data) === anoAtual).reduce((s,v) => s+v.qtd, 0);
+
+  document.getElementById('fat-mes').textContent = R$(fatMes);
+  document.getElementById('fat-mes-sub').textContent = `${pecasMes} peças · ${clientesMes} clientes`;
+  document.getElementById('ticket-medio').textContent = R$k(ticketMedio);
+  document.getElementById('clientes-mes').textContent = clientesMes;
+  document.getElementById('fat-ano').textContent = R$k(fatAno);
+  document.getElementById('pecas-ano').textContent = pecasAno;
+
+  // Gráfico mensal
+  const mesesNomes = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const fatPorMes = mesesNomes.map((_,i) => vendasDoMes(i+1).reduce((s,v) => s+v.valor, 0));
+  const maxFat = Math.max(...fatPorMes, 1);
+
+  const barsEl = document.getElementById('month-bars');
+  const labelsEl = document.getElementById('month-labels');
+  barsEl.innerHTML = '';
+  labelsEl.innerHTML = '';
+
+  fatPorMes.forEach((fat, i) => {
+    const pct = Math.round((fat / maxFat) * 100);
+    const isCurrent = (i + 1) === mesAtual;
+    const col = document.createElement('div');
+    col.className = 'month-col';
+    col.innerHTML = `
+      <div title="${R$(fat)}" style="font-size:9px;color:${isCurrent?'var(--gold)':'var(--ink-light)'};font-weight:${isCurrent?'600':'400'}">${fat?R$k(fat):''}</div>
+      <div class="month-bar${isCurrent?' current':''}" style="height:${pct}%"></div>`;
+    barsEl.appendChild(col);
+
+    const lbl = document.createElement('div');
+    lbl.style.cssText = `font-size:9px;color:${isCurrent?'var(--rose-deep)':'var(--ink-light)'};font-weight:${isCurrent?'600':'400'};flex:1;text-align:center`;
+    lbl.textContent = mesesNomes[i];
+    labelsEl.appendChild(lbl);
+  });
+
+  // Top produtos
+  const contagem = {};
+  APP.vendas.filter(v => getAno(v.data) === anoAtual).forEach(v => {
+    contagem[v.produto] = (contagem[v.produto] || 0) + v.qtd;
+  });
+  const sorted = Object.entries(contagem).sort((a,b) => b[1]-a[1]).slice(0,6);
+  const maxQ = sorted[0]?.[1] || 1;
+  const topEl = document.getElementById('top-produtos');
+  topEl.innerHTML = sorted.length ? sorted.map(([nome, qtd]) => `
+    <div class="bar-row">
+      <div class="bar-label">${nome}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(qtd/maxQ*100)}%"></div></div>
+      <div class="bar-num">${qtd} un</div>
+    </div>`).join('') : '<div class="empty"><div class="empty-text">Nenhuma venda ainda</div></div>';
+
+  // Últimas vendas
+  const ult = [...APP.vendas].reverse().slice(0, 5);
+  const ultEl = document.getElementById('ultimas-vendas');
+  ultEl.innerHTML = ult.length ? ult.map(v => `
+    <div class="venda-item">
+      <div class="venda-top">
+        <div class="venda-prod">${v.produto}</div>
+        <div class="venda-val">${R$(v.valor)}</div>
+      </div>
+      <div class="venda-bot">
+        <div class="venda-cli">${v.cliente}</div>
+        <div class="venda-data">${fmtData(v.data)}</div>
+      </div>
+    </div>`).join('') : '<div class="empty"><div class="empty-text">Nenhuma venda ainda</div></div>';
+}
+
+// ── SALVAR VENDA ──────────────────────────────────────────────────
+function salvarVenda() {
+  const data    = document.getElementById('v-data').value;
+  const cliente = document.getElementById('v-cliente').value.trim();
+  const origem  = document.getElementById('v-origem').value;
+  const produto = document.getElementById('v-produto').value.trim();
+  const qtd     = parseInt(document.getElementById('v-qtd').value) || 1;
+  const valor   = parseFloat(document.getElementById('v-valor').value);
+  const pagto   = document.getElementById('v-pagto').value;
+  const obs     = document.getElementById('v-obs').value.trim();
+
+  if (!data || !cliente || !produto || !valor || !pagto) {
+    showToast('Preencha todos os campos obrigatórios', 'var(--red)'); return;
+  }
+
+  APP.vendas.push({ data, cliente, origem, produto, qtd, valor, pagto, obs });
+  saveData(APP);
+
+  // Limpar
+  document.getElementById('v-cliente').value = '';
+  document.getElementById('v-produto').value = '';
+  document.getElementById('v-qtd').value = '1';
+  document.getElementById('v-valor').value = '';
+  document.getElementById('v-pagto').value = '';
+  document.getElementById('v-obs').value = '';
+  document.getElementById('v-origem').value = '';
+
+  showToast('✓ Venda registrada!');
+  renderPainel();
+}
+
+// Preenche a data de hoje ao abrir a tela de lançar
+document.getElementById('v-data').value = hoje.toISOString().split('T')[0];
+
+// ── VENDAS ────────────────────────────────────────────────────────
+let filtroVendasAtual = 'mes';
+
+function filtrarVendas(f, el) {
+  filtroVendasAtual = f;
+  document.querySelectorAll('#screen-vendas .tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderVendas();
+}
+
+function renderVendas() {
+  let lista;
+  if (filtroVendasAtual === 'mes') lista = vendasDoMes(mesAtual);
+  else if (filtroVendasAtual === 'anterior') lista = vendasDoMes(mesAtual === 1 ? 12 : mesAtual - 1);
+  else lista = APP.vendas;
+
+  lista = [...lista].reverse();
+  const el = document.getElementById('lista-vendas-filtrada');
+  if (!lista.length) { el.innerHTML = '<div class="empty"><div class="empty-icon">🛍️</div><div class="empty-text">Nenhuma venda neste período</div></div>'; return; }
+
+  el.innerHTML = lista.map((v, i) => `
+    <div class="venda-item">
+      <div class="venda-top">
+        <div class="venda-prod">${v.produto} <span style="font-size:11px;color:var(--ink-light)">×${v.qtd}</span></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="venda-val">${R$(v.valor)}</div>
+          <button class="del-btn" onclick="deletarVenda(${APP.vendas.length - 1 - i})" title="Excluir">×</button>
+        </div>
+      </div>
+      <div class="venda-bot">
+        <div class="venda-cli">${v.cliente} · <span style="color:var(--rose-mid)">${v.pagto}</span></div>
+        <div class="venda-data">${fmtData(v.data)}</div>
+      </div>
+    </div>`).join('');
+}
+
+function deletarVenda(idx) {
+  if (!confirm('Excluir esta venda?')) return;
+  APP.vendas.splice(idx, 1);
+  saveData(APP);
+  renderVendas();
+  showToast('Venda removida', 'var(--amber)');
+}
+
+// ── ESTOQUE ───────────────────────────────────────────────────────
+let filtroEstAtual = 'todos';
+
+function filtrarEstoque(f, el) {
+  filtroEstAtual = f;
+  document.querySelectorAll('#screen-estoque .tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderEstoque();
+}
+
+function renderEstoque() {
+  // Calcular vendas por produto
+  const vendidosPorProd = {};
+  APP.vendas.forEach(v => {
+    const chave = v.produto.toLowerCase();
+    APP.produtos.forEach(p => {
+      if (v.produto === p.nome || v.produto.toLowerCase().includes(p.nome.toLowerCase().split(' ')[0])) {
+        vendidosPorProd[p.cod] = (vendidosPorProd[p.cod] || 0) + v.qtd;
+      }
+    });
+  });
+
+  let lista = APP.produtos;
+  if (filtroEstAtual === 'alerta') lista = lista.filter(p => p.estoque >= 10 || p.estoque === 0);
+  if (filtroEstAtual === 'ok') lista = lista.filter(p => p.estoque > 0 && p.estoque < 10);
+
+  const totalPecas = APP.produtos.reduce((s,p) => s+p.estoque, 0);
+  const totalValor = APP.produtos.reduce((s,p) => s+(p.estoque*p.venda), 0);
+  document.getElementById('est-total-pecas').textContent = totalPecas;
+  document.getElementById('est-total-valor').textContent = R$k(totalValor);
+
+  const el = document.getElementById('lista-estoque');
+  el.innerHTML = lista.map(p => {
+    const pct = Math.min(p.estoque / 25 * 100, 100);
+    let badgeClass, badgeText;
+    if (p.estoque === 0) { badgeClass = 'badge-alert'; badgeText = 'Zerado'; }
+    else if (p.estoque >= 15) { badgeClass = 'badge-warn'; badgeText = 'Estoque alto'; }
+    else { badgeClass = 'badge-ok'; badgeText = 'OK'; }
+    const barColor = p.estoque === 0 ? 'var(--red)' : p.estoque >= 15 ? 'var(--amber)' : 'var(--green)';
+    return `
+      <div class="list-item">
+        <div class="list-avatar" style="font-size:11px;font-weight:700">${p.cod}</div>
+        <div class="list-main">
+          <div class="list-name">${p.nome}</div>
+          <div class="stock-bar-wrap">
+            <div class="stock-bar-track"><div class="stock-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+          </div>
+          <div class="list-sub">Venda: ${R$(p.venda)} · Custo: ${R$(p.custo)}</div>
+        </div>
+        <div class="list-right">
+          <div class="list-val">${p.estoque} un</div>
+          <div style="margin-top:4px"><span class="badge ${badgeClass}">${badgeText}</span></div>
+        </div>
+      </div>`;
+  }).join('') || '<div class="empty"><div class="empty-text">Nenhum produto encontrado</div></div>';
+}
+
+// ── CLIENTES ──────────────────────────────────────────────────────
+function renderClientes() {
+  const busca = (document.getElementById('busca-cliente').value || '').toLowerCase();
+
+  // Agregar dados
+  const mapa = {};
+  APP.vendas.forEach(v => {
+    if (!mapa[v.cliente]) mapa[v.cliente] = { nome: v.cliente, origem: v.origem, compras: 0, valor: 0, datas: [] };
+    mapa[v.cliente].compras += 1;
+    mapa[v.cliente].valor += v.valor;
+    mapa[v.cliente].datas.push(v.data);
+  });
+
+  let lista = Object.values(mapa).sort((a,b) => b.valor - a.valor);
+  if (busca) lista = lista.filter(c => c.nome.toLowerCase().includes(busca));
+
+  // Datalist para autocomplete no form
+  const dl = document.getElementById('lista-clientes');
+  dl.innerHTML = Object.keys(mapa).sort().map(n => `<option value="${n}">`).join('');
+
+  const el = document.getElementById('lista-clientes-view');
+  el.innerHTML = lista.map(c => {
+    const ultima = c.datas.sort().reverse()[0];
+    const diasDesde = Math.floor((hoje - new Date(ultima)) / 86400000);
+    let freq, badgeClass;
+    if (c.compras >= 5) { freq = '⭐ VIP'; badgeClass = 'badge-vip'; }
+    else if (c.compras >= 3) { freq = '🔁 Recorrente'; badgeClass = 'badge-rec'; }
+    else { freq = '👋 Casual'; badgeClass = 'badge-ok'; }
+    const alerta = diasDesde > 45 ? `<span class="badge badge-warn" style="margin-left:4px">+${diasDesde}d</span>` : '';
+    return `
+      <div class="list-item">
+        <div class="list-avatar">${c.nome.charAt(0).toUpperCase()}</div>
+        <div class="list-main">
+          <div class="list-name">${c.nome}${alerta}</div>
+          <div class="list-sub">${c.origem} · última: ${fmtData(ultima)}</div>
+        </div>
+        <div class="list-right">
+          <div class="list-val">${R$k(c.valor)}</div>
+          <div style="margin-top:4px"><span class="badge ${badgeClass}">${freq}</span></div>
+        </div>
+      </div>`;
+  }).join('') || '<div class="empty"><div class="empty-text">Nenhuma cliente encontrada</div></div>';
+}
+
+// Autocomplete produtos no form
+const dlProd = document.getElementById('lista-produtos');
+dlProd.innerHTML = PRODUTOS_BASE.map(p => `<option value="${p.nome}">`).join('');
+
+// ── INIT ──────────────────────────────────────────────────────────
+renderPainel();
+</script>
+</body>
+</html>
